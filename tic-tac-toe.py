@@ -71,6 +71,7 @@ def Board(squares, click_func):
                 render_square(5),
             ),
             html.div(
+                {'style': 'height: 50px'},
                 render_square(6),
                 render_square(7),
                 render_square(8),
@@ -138,6 +139,4 @@ configure(
     Options(head=Head()),
 )
 
-square = Square()
-print(type(square))
 run(app)
