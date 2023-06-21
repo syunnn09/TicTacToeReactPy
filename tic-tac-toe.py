@@ -14,7 +14,7 @@ def Head():
 def center():
     return 'display: flex; align-items: center; justify-content: center;'
 
-def calclate_winner(squares):
+def calculate_winner(squares):
     lines = [
         [0, 1, 2],
         [3, 4, 5],
@@ -89,7 +89,7 @@ def Game():
         last_history = history.copy()[0:step_number+1]
         current = history[len(history) - 1]
         square = current['squares'].copy()
-        if calclate_winner(square) or square[i]:
+        if calculate_winner(square) or square[i]:
             return
         square[i] = 'X' if x_is_next else 'O'
         last_history.append({ "squares": square })
@@ -112,7 +112,7 @@ def Game():
     moves = map(move_func, range(len(history)))
 
     current = history[len(history) - 1]
-    winner = calclate_winner(current['squares'])
+    winner = calculate_winner(current['squares'])
     if winner:
         status = 'Winner: ' + winner
     else:
